@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Xml;
 
 bool tımenow = true;
@@ -42,18 +43,40 @@ finally { bodyMassIndex = (weigth / (Math.Pow(height, 2))); }
 if (bodyMassIndex <= 18.5)
 {
     Console.WriteLine("Below the ideal weigth");
+    OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
 else if (bodyMassIndex <= 24.9)
 {
     Console.WriteLine("ideal weigth");
+    OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
 else if (bodyMassIndex <= 29.9)
 {
     Console.WriteLine("Above the ideal weigth");
+    OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
 else if (bodyMassIndex <= 39.9)
 {
     Console.WriteLine("obese");
+    
+    OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
-else { Console.WriteLine("Morbidly Obese"); }
+else
+{
+    Console.WriteLine("Morbidly Obese");
+    
+    OpenBrowser("https://youtu.be/XMcab1MFaLc");
+}
 Console.ReadLine();
+
+static void OpenBrowser(string url)
+{
+    Console.WriteLine("Redirecting To Link...");
+    Thread.Sleep(2000);
+    Process.Start(new ProcessStartInfo
+    {
+        FileName = url,
+        UseShellExecute = true
+    });
+
+}
