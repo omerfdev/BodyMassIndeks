@@ -1,4 +1,7 @@
-﻿bool tımenow = true;
+﻿using System.ComponentModel.Design;
+using System.Xml;
+
+bool tımenow = true;
 for (int i = 0; i < 100; i++)
 {
     Console.Write("*");
@@ -14,47 +17,43 @@ for (int i = 0; i < 100; i++)
             }
         }
     }
-
 }
-
 while (tımenow)
 {
-    int entrytime = DateTime.Now;
+    DateTime dateTime = DateTime.Now;
     Console.WriteLine("\n" + DateTime.Now);
     tımenow = false;
 }
+double height = 0; double weigth = 0; double bodyMassIndex;
 
+try
+{
+    Console.WriteLine("Please Enter Your Heigth");
+    height = double.Parse(Console.ReadLine());
+    Console.WriteLine("Please Enter Your Weigth");
+    weigth = double.Parse(Console.ReadLine());
+}
+catch (FormatException ex)
+{
+    Console.WriteLine(ex);
 
-OMERFDEV:
-int height, weigth, bmi;
-
-
-height = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Please Enter Your Weigth");
-weigth = Convert.ToInt32(Console.ReadLine());
-bmi = (weigth / ((height * height) / 10000));
-if (bmi <= 18)
-{
-    Console.WriteLine("Weak");
-    goto OMERFDEV;
 }
-else if (bmi >= 18 && bmi < 25)
+finally { bodyMassIndex = (weigth / (Math.Pow(height, 2))); }
+if (bodyMassIndex <= 18.5)
 {
-    Console.WriteLine("Normal");
-    goto OMERFDEV;
+    Console.WriteLine("Below the ideal weigth");
 }
-else if (bmi >= 25 && bmi < 30)
+else if (bodyMassIndex <= 24.9)
 {
-    Console.WriteLine("Fat");
-    goto OMERFDEV;
+    Console.WriteLine("ideal weigth");
 }
-else if (bmi >= 30 && bmi < 35)
+else if (bodyMassIndex <= 29.9)
 {
-    Console.WriteLine("Obese");
-    goto OMERFDEV;
+    Console.WriteLine("Above the ideal weigth");
 }
-else
+else if (bodyMassIndex <= 39.9)
 {
-    Console.WriteLine("Serious Obese");
-    goto OMERFDEV;
+    Console.WriteLine("obese");
 }
+else { Console.WriteLine("Morbidly Obese"); }
+Console.ReadLine();
