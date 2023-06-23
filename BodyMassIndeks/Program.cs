@@ -48,7 +48,7 @@ if (bodyMassIndex <= 18.5)
 }
 else if (bodyMassIndex <= 24.9)
 {
-    Console.WriteLine("ideal weigth");
+    Console.WriteLine("Ideal weigth");
     OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
 else if (bodyMassIndex <= 29.9)
@@ -58,7 +58,7 @@ else if (bodyMassIndex <= 29.9)
 }
 else if (bodyMassIndex <= 39.9)
 {
-    Console.WriteLine("obese");
+    Console.WriteLine("Obese");
     
     OpenBrowser("https://youtu.be/XMcab1MFaLc");
 }
